@@ -3,7 +3,7 @@ requires = ["setuptools>=45", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "zoautil-py-stubs"
+name = "zoautil_py-stubs"
 version = "1.0.0"
 description = "Type stubs for IBM Z Open Automation Utilities (ZOAU) Python package"
 readme = "README.md"
@@ -25,6 +25,9 @@ classifiers = [
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",            
     "Typing :: Typed",
 ]
 
