@@ -11,7 +11,7 @@ C Extension Sources:
 from typing import Literal, Optional
 from types import TracebackType
 
-class DataDefinition:
+class _DataDefinition:
     """Dynamically allocate a data definition.
     
     This class provides an interface to z/OS dynamic allocation services,
@@ -170,11 +170,11 @@ class DataDefinition:
         """True if the data definition is currently allocated."""
         ...
     
-    def __enter__(self) -> 'DataDefinition':
+    def __enter__(self) -> '_DataDefinition':
         """Context manager entry.
         
         Returns:
-            The DataDefinition instance.
+            The _DataDefinition instance.
         """
         ...
     
@@ -203,5 +203,9 @@ class DataDefinition:
         Issues a ResourceWarning if the allocation was not explicitly freed.
         """
         ...
+
+# Type alias for backward compatibility
+# The C extension exports the class as _DataDefinition
+DataDefinition = _DataDefinition
 
 # Made with Bob
