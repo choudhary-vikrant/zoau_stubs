@@ -35,7 +35,7 @@ This works because:
 Install the stubs in editable mode:
 
 ```bash
-cd /Users/fultonm/Documents/Development/zoau_stubs
+cd /path/to/zoautil_py-stubs
 pip install -e .
 ```
 
@@ -82,7 +82,7 @@ Or add to `.vscode/settings.json` in your project:
 ```json
 {
     "python.analysis.extraPaths": [
-        "/Users/fultonm/Documents/Development/zoau_stubs"
+        "/path/to/zoautil_py-stubs"
     ]
 }
 ```
@@ -100,24 +100,35 @@ files directly:
 ## Package Structure
 
 ```text
-zoau_stubs/
-├── pyproject.toml          # Package configuration
-├── setup.py                # Setup script
-├── README.md               # This file
-└── zoautil_py/             # Stub package
-    ├── __init__.pyi        # Package initialization stubs
-    ├── py.typed            # Marker file for type checkers
-    ├── common.pyi          # Common utilities stubs
-    ├── datasets.pyi        # Dataset operations stubs
-    ├── exceptions.pyi      # Exception definitions
-    ├── gdgs.pyi            # GDG operations stubs
-    ├── jobs.pyi            # Job operations stubs
-    ├── mvscmd.pyi          # MVS command stubs
-    ├── opercmd.pyi         # Operator command stubs
-    ├── utilities.pyi       # Utility functions stubs
-    ├── zoau_io.pyi         # I/O operations stubs
-    ├── zsystem.pyi         # System operations stubs
-    └── ztypes.pyi          # Type definitions
+zoautil_py-stubs/
+├── pyproject.toml              # Package configuration
+├── setup.py                    # Setup script
+├── README.md                   # This file
+├── INSTALL.md                  # Detailed installation guide
+├── QUICKSTART.md               # Quick 2-minute setup guide
+├── SOLUTION_SUMMARY.md         # Architecture and design notes
+└── zoautil_py/                 # Stub package
+    ├── __init__.py             # Package initialisation
+    ├── py.typed                # Marker file for type checkers
+    ├── core.pyi                # C extension: core ZOAU library calls
+    ├── _zoau_io.pyi            # C extension: z/OS record-stream I/O
+    ├── _zoau_dynalloc.pyi      # C extension: dynamic DD allocation
+    ├── zoau_io.py              # Public I/O wrapper (ZIOBase, RecordIO)
+    ├── zoau_io.pyi             # Stubs for zoau_io.py
+    ├── common.py               # Common utilities
+    ├── core_return_codes.py    # Return code constants
+    ├── datasets.py             # Dataset operations
+    ├── exceptions.py           # Exception definitions
+    ├── gdgs.py                 # GDG operations
+    ├── jobs.py                 # Job operations
+    ├── members.py              # PDS/PDSE member operations
+    ├── mvscmd.py               # MVS command execution
+    ├── opercmd.py              # Operator command execution
+    ├── utilities.py            # Utility functions
+    ├── volumes.py              # Volume operations
+    ├── vsam.py                 # VSAM dataset operations
+    ├── zsystem.py              # z/OS system information
+    └── ztypes.py               # Type definitions
 ```
 
 ## Troubleshooting

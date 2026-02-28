@@ -5,7 +5,7 @@ Get up and running with ZOAU stubs in 2 minutes!
 ## Installation (One-Time Setup)
 
 ```bash
-cd /Users/fultonm/Documents/Development/zoau_stubs
+cd /path/to/zoautil_py-stubs
 pip install -e .
 ```
 

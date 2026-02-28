@@ -1,5 +1,5 @@
 """
-Setup script for zoautil-py-stubs package.
+Setup script for zoautil_py package.
 This provides backward compatibility for older pip versions.
 """
 from setuptools import setup

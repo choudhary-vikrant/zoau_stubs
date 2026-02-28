@@ -15,7 +15,7 @@ while allowing your code to run unchanged on z/OS.
 
 1. **On Your Development Machine (Mac/Linux/Windows)**:
    - Install the stub package:
-     `pip install -e /Users/fultonm/Documents/Development/zoau_stubs`
+     `pip install -e /path/to/zoautil_py-stubs`
    - VS Code reads the `.pyi` stub files
    - You get full IntelliSense, autocomplete, and type checking
    - Stubs provide NO runtime functionality (this is intentional)
@@ -138,29 +138,37 @@ runtime functionality.
 ### Package Structure
 
 ```text
-zoau_stubs/
-├── pyproject.toml          # Package metadata
-├── setup.py                # Setup script
-├── MANIFEST.in             # Distribution files
-├── LICENSE                 # MIT license
-├── README.md               # Main documentation
-├── INSTALL.md              # Installation guide
-├── QUICKSTART.md           # Quick start
-├── SOLUTION_SUMMARY.md     # This file
-└── zoautil_py/             # Stub package
-    ├── __init__.pyi        # Package init stubs
-    ├── py.typed            # Type checker marker
-    ├── common.pyi          # Common utilities
-    ├── datasets.pyi        # Dataset operations
-    ├── exceptions.pyi      # Exception definitions
-    ├── gdgs.pyi            # GDG operations
-    ├── jobs.pyi            # Job operations
-    ├── mvscmd.pyi          # MVS commands
-    ├── opercmd.pyi         # Operator commands
-    ├── utilities.pyi       # Utilities
-    ├── zoau_io.pyi         # I/O operations
-    ├── zsystem.pyi         # System operations
-    └── ztypes.pyi          # Type definitions
+zoautil_py-stubs/
+├── pyproject.toml              # Package metadata
+├── setup.py                    # Setup script
+├── MANIFEST.in                 # Distribution files
+├── LICENSE                     # MIT license
+├── README.md                   # Main documentation
+├── INSTALL.md                  # Installation guide
+├── QUICKSTART.md               # Quick start
+├── SOLUTION_SUMMARY.md         # This file
+└── zoautil_py/                 # Stub package
+    ├── __init__.py             # Package initialisation
+    ├── py.typed                # Type checker marker
+    ├── core.pyi                # C extension: core ZOAU library calls
+    ├── _zoau_io.pyi            # C extension: z/OS record-stream I/O
+    ├── _zoau_dynalloc.pyi      # C extension: dynamic DD allocation
+    ├── zoau_io.py              # Public I/O wrapper (ZIOBase, RecordIO)
+    ├── zoau_io.pyi             # Stubs for zoau_io.py
+    ├── common.py               # Common utilities
+    ├── core_return_codes.py    # Return code constants
+    ├── datasets.py             # Dataset operations
+    ├── exceptions.py           # Exception definitions
+    ├── gdgs.py                 # GDG operations
+    ├── jobs.py                 # Job operations
+    ├── members.py              # PDS/PDSE member operations
+    ├── mvscmd.py               # MVS command execution
+    ├── opercmd.py              # Operator command execution
+    ├── utilities.py            # Utility functions
+    ├── volumes.py              # Volume operations
+    ├── vsam.py                 # VSAM dataset operations
+    ├── zsystem.py              # z/OS system information
+    └── ztypes.py               # Type definitions
 ```
 
 ### Why Editable Mode
